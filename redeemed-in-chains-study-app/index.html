@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A conservative evangelical Bible study companion and reference app for Redeemed in Chains."
+    />
+    <title>Redeemed in Chains Bible Study Companion</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to study</a>
+
+    <header class="app-header">
+      <a class="brand" href="#top" aria-label="Redeemed in Chains study home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Redeemed in Chains</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary sections">
+        <button class="nav-tab is-active" type="button" data-view="study">Study</button>
+        <button class="nav-tab" type="button" data-view="chapters">Chapters</button>
+        <button class="nav-tab" type="button" data-view="reference">Reference</button>
+        <button class="nav-tab" type="button" data-view="plan">Plan</button>
+        <button class="nav-tab" type="button" data-view="notes">Notes</button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <img
+          class="hero-image"
+          src="assets/redeemed-cover.png"
+          alt="Redeemed in Chains book cover"
+        />
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="kicker">Bible study companion</p>
+          <h1>Grace can reach a man even when consequence has closed the door.</h1>
+          <p>
+            A study and reference app for the biblical principles addressed in
+            <strong>Redeemed in Chains</strong>, now grounded in the supplied final
+            manuscript and built from a conservative, literal, evangelical Christian
+            reading of Scripture.
+          </p>
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-view-trigger="study">Start Study</button>
+            <button class="button button-secondary" type="button" data-view-trigger="plan">Build Plan</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="notice-band" aria-label="Source note">
+        <div>
+          <strong>Manuscript integrated:</strong>
+          <span>
+            The study modules are based on OCR review of your supplied final PDF.
+            The full manuscript text is not embedded in the app or deploy package.
+          </span>
+        </div>
+      </section>
+
+      <section class="app-view" data-panel="study">
+        <div class="section-heading">
+          <p class="kicker">Study modules</p>
+          <h2>Trace the book's themes back to Scripture.</h2>
+          <p>
+            Each module keeps the Bible as the controlling authority, treats sin and
+            grace plainly, and avoids sentimental redemption without repentance.
+          </p>
+        </div>
+
+        <div class="study-layout">
+          <aside class="study-sidebar" aria-label="Study module list">
+            <label class="search-box">
+              <span>Search topics or references</span>
+              <input id="module-search" type="search" placeholder="repentance, prison, Romans..." />
+            </label>
+            <div class="module-list" id="module-list"></div>
+          </aside>
+
+          <article class="module-detail" id="module-detail" aria-live="polite"></article>
+        </div>
+      </section>
+
+      <section class="app-view is-hidden" data-panel="chapters">
+        <div class="section-heading">
+          <p class="kicker">Manuscript map</p>
+          <h2>Follow the story's movement from pressure to grace that stays.</h2>
+          <p>
+            Use the chapter map to connect discussion weeks to the actual narrative arc:
+            clinic, collapse, court, prison, conversion, repair, and hope.
+          </p>
+        </div>
+        <div class="chapter-grid" id="chapter-grid"></div>
+      </section>
+
+      <section class="app-view is-hidden" data-panel="reference">
+        <div class="section-heading">
+          <p class="kicker">Reference library</p>
+          <h2>Doctrinal anchors for discussion leaders.</h2>
+          <p>
+            Use this as a guardrail when turning the novel's scenes into Bible study:
+            meaning comes from the text of Scripture, not from emotional impression.
+          </p>
+        </div>
+        <div class="reference-grid" id="reference-grid"></div>
+      </section>
+
+      <section class="app-view is-hidden" data-panel="plan">
+        <div class="section-heading">
+          <p class="kicker">Group plan</p>
+          <h2>Build a discussion schedule.</h2>
+          <p>
+            Choose a study length and the app will arrange the doctrine modules into
+            a group-ready rhythm.
+          </p>
+        </div>
+
+        <div class="plan-controls" aria-label="Plan length">
+          <button class="plan-button is-active" type="button" data-weeks="4">4 weeks</button>
+          <button class="plan-button" type="button" data-weeks="6">6 weeks</button>
+          <button class="plan-button" type="button" data-weeks="8">8 weeks</button>
+          <button class="plan-button" type="button" data-weeks="10">10 weeks</button>
+          <button class="button button-dark" type="button" id="copy-plan">Copy Plan</button>
+        </div>
+
+        <div class="plan-grid" id="plan-grid"></div>
+        <p class="copy-status" id="copy-status" aria-live="polite"></p>
+      </section>
+
+      <section class="app-view is-hidden" data-panel="notes">
+        <div class="section-heading">
+          <p class="kicker">Author notes</p>
+          <h2>Make it specific to your manuscript.</h2>
+          <p>
+            Paste chapter summaries, key scenes, or discussion cautions here. The app
+            stores this only in this browser with local storage.
+          </p>
+        </div>
+
+        <div class="notes-layout">
+          <form class="book-notes-form" id="book-notes-form">
+            <label>
+              <span>Book review notes</span>
+              <textarea
+                id="book-notes"
+                rows="12"
+                placeholder="Example: Chapter 21, The Voice in the Yard, confronts guilt as a false god. Pair with Romans 8:1 and 2 Corinthians 7:10."
+              ></textarea>
+            </label>
+            <button class="button button-primary" type="submit">Save Notes</button>
+          </form>
+
+          <aside class="review-card">
+            <p class="kicker">Initial review lens</p>
+            <h3>Initial manuscript review</h3>
+            <p>
+              The manuscript is strongest when it refuses shortcuts. Ethan is not
+              redeemed by avoiding consequence, and David Matthews is not required
+              to make grief tidy. Grace enters truthfully and then stays.
+            </p>
+            <ul>
+              <li>Do not let grace become excuse.</li>
+              <li>Do not let consequence become hopelessness.</li>
+              <li>Keep repentance visible, concrete, and Christ-centered.</li>
+              <li>Let family wounds be handled honestly, not neatly.</li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Built as a study companion for Redeemed in Chains.</p>
+      <div>
+        <a href="#main">Study tools</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
